@@ -50,7 +50,7 @@ tales of wisdom gained...
 
 ==============================================================
 
-2022-05-
+2022-05-27
 --------------------------------------------------------------
-
+Andrew and Jacob: Tried making a button class in Processing. Didn't work well. Still deciding between regular java and processing.
 ==============================================================
