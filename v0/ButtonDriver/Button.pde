@@ -1,40 +1,59 @@
 class Button {
   
-  int _maxX,_minX;
-  int _maxY,_minY;
-  
-  int _width,_height;
-  
-  color c;
-  
-  Button(int maxX, int minX, int maxY, int minY) {
-    _maxX = maxX;
-    _minX = minX;
-    _maxY = maxY;
-    _minY = minY;
-    
-    _width = maxX - minX;
-    _height = maxY - minY;
-    
-    c = color(100,100,0); 
-  }
-      
-  
-  void draw() {
-    rect(_minX,_minY,_width,_height);
-    fill(c);
-        
-    if (mousePressed) {
-      if (abs(mouseX) > _minX && abs(mouseX) < _maxX) {
-        if (abs(mouseY) > _minY && abs(mouseY) < _maxY) {
-          execute();
-        }
-      }
+ // these coordinates define the top left corner of the button
+ float _cornerX, _cornerY; 
+ 
+ // define where the rectangular button ends
+ float _width, _height;
+ 
+ // defines the color of the button
+ color c;
+ 
+ // defines whats inside the button
+ 
+ 
+ // overloaded constructor
+ Button(float x, float y, float len, float high) {
+   _cornerX = x;
+   _cornerY = y;
+   
+   _width = len;
+   _height = high;
+ } // end constructor
+ 
+ 
+ // overloaded constructor with color addition
+ Button(float x, float y, float wid, float high, color col) {
+  this(x,y,wid,high);
+  c = col;
+ } // end constructor
+ 
+ 
+ // function does what the buttons function is
+ void execute() {
+   // in this case the function is to randomly change the buttons color
+   c = color(random(255),random(255),random(255));
+ } // end execute
+ 
+ 
+ // displays the button
+ void display() {
+   fill(c);
+   rect(_cornerX,_cornerY,_width,_height);
+   
+   if (mousePressed && isInButton()) {
+     execute();
+   }
+ }// end draw
+ 
+ 
+ boolean isInButton() {
+  if (mouseX > _cornerX && mouseX < _cornerX + _width) {
+    if (mouseY > _cornerY && mouseY < _cornerY + _height) {
+      return true;
     }
-  } // emd draw
-
-  void execute() {
-    c = color(random(255),random(255),random(255));
-  } 
-  
-}
+  }
+  return false; 
+ } // end isInButton
+ 
+}// end class
