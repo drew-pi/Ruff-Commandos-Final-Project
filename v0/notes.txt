@@ -1,1 +1,12 @@
+v0 folder is for proof of concepts. 
 
+Heap using only generic comparables was not too difficult but what was 
+hard was making sure that you could only make a Heap of comparables (by 
+saying <T extends Comparable<T> > and then in any new class, in this case 
+Ball, we had to make it inherit the compareTo method by implementing 
+Comparable<Ball>
+
+
+creating buttons was harder bec of the strange way that fill and 
+processing works. fill has to always come before the shape that you 
+create, otherwise it fills the next shape created instead
