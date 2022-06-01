@@ -10,12 +10,12 @@ class Characters {
   int _centerX, _centerY;
 
   // defines how large the ball is
-  //int _radius;
+  int _radius;
 
   // defines the color of the ball
-  //color c;
-
-  //image
+  color c;
+  
+    //image
   PImage img;
 
   //attributes
@@ -23,8 +23,8 @@ class Characters {
   boolean alive;
   String type;
 
-  Characters( int x, int y, AdvancedButton creator, int h, int d, String t) { //int size,color col,
-    //_radius = size;
+  Characters(int x, int y, AdvancedButton creator){//, int h, int d) {
+   // _radius = size;
 
     _centerX = x;
     _centerY = y;
@@ -33,11 +33,11 @@ class Characters {
 
     owner = creator;
     _moving = true;
-
-    health = h;
-    damage = d;
-    alive = true;
-    type = t;
+    
+    //health = h;
+    //damage = d;
+    //alive = true;
+    //type = t;
     img = loadImage("pea.jpeg");
   }
 
@@ -45,7 +45,7 @@ class Characters {
   void display() {
     //fill(c);
     //ellipse(_centerX, _centerY, _radius, _radius);
-    image(img,_centerX, _centerY );
+    image(img,_centerX, _centerY, 30, 30 );
 
     // if the ball is being dragged update its coordinates with the mouse
     if (_moving) {
@@ -57,7 +57,7 @@ class Characters {
   }
 
   // overide equals method for the cleanUpAL method to work
-//  boolean equals(FloatingBall fb) {
-//    return (_centerX == fb._centerX) && (_centerY == fb._centerY) && (_radius == fb._radius);
-//  }
+  //boolean equals(FloatingBall fb) {
+  //  return (_centerX == fb._centerX) && (_centerY == fb._centerY) && (_radius == fb._radius);
+  //}
 }

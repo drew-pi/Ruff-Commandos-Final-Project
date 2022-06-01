@@ -23,13 +23,13 @@ class AdvancedButton {
 
 
   // executes the buttons function - in this case creates a new instance of floating ball to return
-  FloatingBall execute() {
-   FloatingBall fb = null;
-    if (mousePressed && isInButton()) {
-      fb = new FloatingBall(30, (_cornerX + _width/2), (_cornerY + _height/2), color(255,100,150),this);
-    }
-    return fb;
-  }
+  //FloatingBall execute() {
+  // FloatingBall fb = null;
+  //  if (isInButton()) {
+  //    fb = new FloatingBall(30, (_cornerX + _width/2), (_cornerY + _height/2), color(255,100,150),this);
+  //  }
+  //  return fb;
+  //}
 
 
 
