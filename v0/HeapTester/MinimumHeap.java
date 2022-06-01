@@ -21,7 +21,7 @@ public class MinimumHeap<T extends Comparable<T>>
   {
       // level-order traversal of the tree
       String retString = "";
-      for (T i : _heap) retString += i;
+      for (T i : _heap) retString += i + " ";
       return retString;
   }
 
