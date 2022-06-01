@@ -8,11 +8,12 @@ Plants vs Zombies
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - How to make buttons. 
+ - How to make min heap
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - How exactly the grid will work for the plants
 
 COOL STUFF THAT *WILL* BE ADDED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,4 +54,10 @@ tales of wisdom gained...
 2022-05-27
 --------------------------------------------------------------
 Andrew and Jacob: Tried making a button class in Processing. Didn't work well. Still deciding between regular java and processing.
+==============================================================
+
+2022-05-31
+--------------------------------------------------------------
+Jacob: UML and flowchart
+Andrew: created advanced button that allows drag and drop, minheap, and button
 ==============================================================
