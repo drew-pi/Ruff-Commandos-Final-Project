@@ -16,6 +16,9 @@ void setup() {
   minHeap.add(a);
   minHeap.add(c);
   minHeap.add(d);
+  
+  minHeap.removeMin();
+  minHeap.removeMin();
 
   print(minHeap);
 }
