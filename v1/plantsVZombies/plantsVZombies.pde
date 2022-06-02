@@ -1,9 +1,9 @@
 //import java.util.ArrayList;
 
-AdvancedButton a,b,c;
-//FloatingBall activeBall, bb ,cc;
+AdvancedButton a,b,c, d;
+//this will be for when the character spawns from the click
 Characters active;
-//ArrayList<FloatingBall> allBalls;
+//store the characters after second click or when placed so they don't disappear.
 ArrayList<Characters> allCharacters;
 
 void setup() {
@@ -13,6 +13,7 @@ void setup() {
   a = new AdvancedButton(20,20,100,100, color(0,200,0));
   b = new AdvancedButton(140,20,100,100, color(200,0,0));
   c = new AdvancedButton(260,20,100,100, color(0,0,200));
+  d = new AdvancedButton(380,20,100,100, color(0,200,200));
 
   allCharacters = new ArrayList<Characters>();
 }
@@ -26,49 +27,52 @@ void draw() {
   // displays the visual button (in this case a green square)
   a.display();
 
-  // if button is pressed, returns an object of FloatingBall
+  // if button is pressed and no active character, returns an object of characters
   if(mousePressed && active == null){
     AdvancedButton button;
     button = a;
     if(button.isInButton()){
 
-    active = new Characters( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button);
+    active = new DoublePea( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button, 4, 1, 3);
     }
     button = b;
     if(button.isInButton()){
 
-    active = new Characters( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button);
+    active = new Cherry( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button, 4, 1, 3);
     }
     button = c;
     if(button.isInButton()){
 
-    active = new Characters( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button);
+    active = new PeaShooter( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button, 4, 1, 3);
     }
+    button = d;
+    if(button.isInButton()){
+
+    active = new Walnut( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button, 4, 1, 3);
+    }
+
+    //println(active.health);
   }
   // if button is pressed, new object is added to list
-  // this step sometimes adds many objects because click can last for more than a 1/60th of a second (registers every 60 fps)
-  // so to combat have to clean up array after each screen refresh (every frame, so every 1/60th of a second)
-  //if (activeBall != null) allBalls.add(activeBall); //activeBall = null;
+
 
   b.display();
-  //bb = b.execute();
-  //if (bb != null) allBalls.add(bb); bb = null;
+
 
   c.display();
-  //cc = c.execute();
-  //if (cc != null) allBalls.add(cc); cc = null;
 
-  // cleans up Array to make sure that only one version of the object is in the array list
-  // other objects could interfere with the program
-  //cleanUpAL(allBalls);
-  //println(allBalls.size());
 
-  // displays the independent objects - in this case floating balls
+
+
+  // displays the independent objects - in this case all characters that we stored in the array
   for (Characters fb : allCharacters) {
 
       fb.display();
 
   }// end for loop
+
+  //if the mouse is connected to an object display it. Once it stops moving, store in array to save it
+  //set active null again so another object can be spawned.
   if (active != null) {
 
       active.display();
