@@ -47,6 +47,23 @@ tales of wisdom gained...
 ==============================================================
 
 
+To Do List:
+--------------------------------------------------------------
+1. Create many interfaces so that things have to work properly
+	- make all Zombies adhere to comparable interface to work with min heap
+	- all characters have to have the same instance variables like health, damage, etc... 
+
+2. Decide how interaction would work (two possibilities)
+	- potentially could have all character objects (zombies, plants and the plant bullets) in one array list and cycle through 	     to see if things are bumping into each other
+	- or could separate everything into rows (like all all objects in a single row would be one array list) and would also cycle through, but would clean things up
+
+3. Actually create board layout and button layout (where currency counter would be and where round counter would be)
+
+4. Create distinct zones where you can place zombies (where they would lock onto, similar to buttons, but plate objects or something of that sort) or discuss alternative methods
+
+5. 
+
+
 
 --------------------------------------------------------------
 
@@ -66,11 +83,17 @@ Andrew: created advanced button that allows drag and drop, minheap, and button
 2022-06-01
 --------------------------------------------------------------
 Jacob: adjusted advanced button to be less clunky. Spawns plant now
-Andrew: 
+Andrew: Sick !
 ==============================================================
 
 2022-06-02
 --------------------------------------------------------------
 Jacob: all plants created.
-Andrew: 
+Andrew: Started working on how plants and zombies would interact
+==============================================================
+
+2022-06-03
+--------------------------------------------------------------
+Jacob: all plants created.
+Andrew: worked on to do list
 ==============================================================
