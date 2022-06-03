@@ -1,19 +1,20 @@
 //import java.util.ArrayList;
 
-AdvancedButton a,b,c, d;
+AdvancedButton a,b,c, d, e ;
 //this will be for when the character spawns from the click
 Characters active;
 //store the characters after second click or when placed so they don't disappear.
 ArrayList<Characters> allCharacters;
 
 void setup() {
-  size(600,600);
+  size(700,700);
   background(255);
 
   a = new AdvancedButton(20,20,100,100, color(0,200,0));
   b = new AdvancedButton(140,20,100,100, color(200,0,0));
   c = new AdvancedButton(260,20,100,100, color(0,0,200));
-  d = new AdvancedButton(380,20,100,100, color(0,200,200));
+  d = new AdvancedButton(380,20,100,100, color(204,102,200));
+  e = new AdvancedButton(500,20,100,100, color(102,102,200));
 
   allCharacters = new ArrayList<Characters>();
 }
@@ -24,8 +25,7 @@ void draw() {
 
   // this is the mechanism for creating other independent objects through button interaction (all work the same)
 
-  // displays the visual button (in this case a green square)
-  a.display();
+
 
   // if button is pressed and no active character, returns an object of characters
   if(mousePressed && active == null){
@@ -50,18 +50,26 @@ void draw() {
 
     active = new Walnut( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button, 4, 1, 3);
     }
+    button = e;
+    if(button.isInButton()){
+
+    active = new Ice( (button._cornerX + button._width/2), (button._cornerY + button._height/2), button, 4, 1, 3);
+    }
 
     //println(active.health);
   }
   // if button is pressed, new object is added to list
 
-
+  // displays the visual button (in this case a green square)
+  a.display();
   b.display();
 
 
   c.display();
 
+  d.display();
 
+  e.display();
 
 
   // displays the independent objects - in this case all characters that we stored in the array

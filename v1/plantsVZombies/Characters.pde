@@ -33,7 +33,7 @@ class Characters {
     damage = d;
     alive = true;
     type = t;
-    img = loadImage("pea.jpeg");
+    img = loadImage("cookie.jpeg");
   }
 
   // in this case diplays the ball and determines whether it is being dragged or static

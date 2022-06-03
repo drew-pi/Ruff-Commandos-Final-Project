@@ -1,10 +1,10 @@
-class Walnut extends Plants{
+class Ice extends Plants{
 
 PImage img;
 
-  Walnut(int x, int y, AdvancedButton creator, int h, int d, int cost){
+  Ice(int x, int y, AdvancedButton creator, int h, int d, int cost){
       super( x,  y,  creator,  h,  d,  cost);
-      img = loadImage("walnut.png");
+      img = loadImage("ice.jpeg");
   }
   void display() {
 
