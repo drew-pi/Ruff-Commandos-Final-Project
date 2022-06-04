@@ -51,7 +51,8 @@ To Do List:
 --------------------------------------------------------------
 1. Create many interfaces so that things have to work properly
 	- make all Zombies adhere to comparable interface to work with min heap
-	- all characters have to have the same instance variables like health, damage, etc... 
+	- all characters have to have the same instance variables like health, damage, some sort of x and y location, etc... 
+	- all characters and objects (like plant bullets) have to have "boolean collide(int x, int y)" to calculate if those two objects are colliding
 
 2. Decide how interaction would work (two possibilities)
 	- potentially could have all character objects (zombies, plants and the plant bullets) in one array list and cycle through 	     to see if things are bumping into each other
