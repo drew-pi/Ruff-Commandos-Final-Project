@@ -5,6 +5,7 @@ int numSuns;
 
 //ArrayList<PZObjects> all;
 //ArrayList<Buttons> buttons;
+//ArrayList<Tiles> tiles;
 
 
 void setup() {
@@ -76,10 +77,13 @@ void setupButtons() {
   
   
   // setups the wave counter (which wave of zombies it is)
+  fill(255,255,0);
+  rect(835,12,25,22);
+  
   textAlign(CENTER);
   textFont(createFont("TimesNewRomanPSMT",20));
   fill(0);
-  text("Wave number 1/4",800,30);
+  text("Wave number   4   /4",800,30);
   
   
 }

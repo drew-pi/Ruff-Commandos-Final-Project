@@ -3,41 +3,34 @@
 
 class PZObjects {
 
-  //defines where this object originated from
-  protected PZObjects _owner;
-
   // defines the type variable (could be zombie, plant, bullet)
-  protected String _type;
-
-  // defines the health of any PZObject (could be null if it is a bullet)
-  protected Integer _health;
-
-  // defines the damage that this PZObject does to another
-  protected int _damage;
+  String _type;
 
   // defines the X and Y locations of this object (or of its center)
-  protected int _coordX, _coordY;
-
-  // defines whether the object is moving or not (true if moving, false otherwise)
-  protected boolean _moving;
-
-  // defines whether the object is alive (if dead then to be removed)
-  protected boolean _alive;
+  int _coordX, _coordY;
 
   // defines what this object display (could be a png or null)
-  protected PImage _img;
-
-
-
-
-
-
-
-
-  // method that is required by PZObjectInterface
-  boolean areColliding(int coordX, int coordY, int radius);
-
-
-
+  PImage _img;
+  
+  //overloaded constructor with just coordinates
+  PZObjects(int coordX, int coordY) {
+     _coordX = coordX;
+     _coordY = coordY;
+     _type = "Generic";
+     _img = null;
+  } // end 1st constructor
+  
+  //overloaded constructor - with type
+  PZObjects(String type, int coordX, int coordY) {
+    this(coordX, coordY);
+    _type = type;
+    _img = null;
+  } // end second constructor
+  
+  // overloaded constructor - with image
+  PZObjects(String type, int coordX, int coordY, PImage img) {
+    this(type, coordX, coordY);
+    _img = img;
+  }// end 3rd constructor
 
 }
