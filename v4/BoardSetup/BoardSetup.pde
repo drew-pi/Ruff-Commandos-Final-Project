@@ -5,13 +5,20 @@ int numSuns;
 
 //ArrayList<PZObjects> all;
 //ArrayList<Buttons> buttons;
-//ArrayList<Tiles> tiles;
+ArrayList<GridSquare> tiles;
 
 
 void setup() {
+  // initialize arrays
+  tiles = new ArrayList<GridSquare>();
+  
+  // setup other variables
   numSuns = STARTING_SUNS;
+  
+  // setup board
   size(1201,605);
   background(255);
+  setupTiles();
   drawLines();
   setupButtons();
   //println(PFont.list()); //TimesNewRomanPSMT
@@ -23,21 +30,13 @@ void drawLines() {
   fill(0);
   strokeWeight(1);
   // horizontal lines
-  line(1,600,1200,600);
-  line(1,500,1200,500);  
-  line(1,400,1200,400);
-  line(1,300,1200,300);
-  line(1,200,1200,200);
+  for (int i = 200; i <= 600; i += 100) line(1,i,1200,i); 
   
   // vertical lines
   line(1, 200, 1, 600);
-  line(200, 200, 200, 600);
-  line(400, 200, 400, 600);
-  line(600, 200, 600, 600);
-  line(800, 200, 800, 600);
-  line(1000, 200, 1000, 600);
-  line(1200, 200, 1199, 600);  
-}
+  for (int i = 200; i <= 1200; i += 200) line(i,200,i,600); 
+  
+} // end draw lines
 
 // functions that setups the buttons and timers
 void setupButtons() {
@@ -84,6 +83,19 @@ void setupButtons() {
   textFont(createFont("TimesNewRomanPSMT",20));
   fill(0);
   text("Wave number   4   /4",800,30);
+} // setup buttons
+
+
+void setupTiles() {
   
+  // go column by column
+  for (int i = 0; i < 1200; i += 200) {
+    // row by row
+    for (int j = 200; j < 600; j += 100) {
+      tiles.add(new GridSquare(i,j));
+    }
+  }
   
-}
+  for (GridSquare g: tiles) g.display();
+    
+} // end setupTiles
