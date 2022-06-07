@@ -12,7 +12,7 @@ int cost;
   }
   void display() {
 
-    
+
 
     // if the ball is being dragged update its coordinates with the mouse
     if (_moving) {
@@ -21,5 +21,17 @@ int cost;
     }
     // if you click the mouse outside of the button it will become static
     if (mousePressed && !owner.isInButton()) _moving = false;
+  }
+  int getCost(){
+    return cost;
+  }
+  int compareTo(Zombies zomb){
+    if(this.cost > zomb.getCost()){
+      return 1;
+    }else if(this.cost < zomb.getCost()){
+      return -1;
+    }else{
+      return 0;
+    }
   }
 }

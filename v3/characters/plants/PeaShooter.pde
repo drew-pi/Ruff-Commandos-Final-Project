@@ -2,7 +2,7 @@ class PeaShooter extends Plants{
 
 
 
-  PeaShooter(int x, int y, AdvancedButton creator, int h, int d, int cost){
+  PeaShooter(int x, int y, Button creator, int h, int d, int cost){
       super( x,  y,  creator,  h,  d,  cost);
       img = loadImage("pea.jpeg");
   }

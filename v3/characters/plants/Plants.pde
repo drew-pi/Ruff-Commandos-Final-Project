@@ -4,7 +4,7 @@ int costs;
 //image
 //PImage img;
 
-  Plants(int x, int y, AdvancedButton creator, int h, int d, int cost){
+  Plants(int x, int y, Button creator, int h, int d, int cost){
       super(x, y, creator,  h,  d, "Plant");
       costs = cost;
       _moving = false;
