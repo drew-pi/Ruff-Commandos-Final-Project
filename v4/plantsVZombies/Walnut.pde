@@ -1,15 +1,15 @@
 class Walnut extends Plants{
 
-PImage img;
+//PImage img;
 
 
   Walnut(int x, int y, AdvancedButton creator, int h, int d, int cost){
       super( x,  y,  creator,  h,  d,  cost);
-      img = loadImage("walnut.png");
+      _img = loadImage("walnut.png");
   }
   void display() {
 
-    image(img,_coordX, _coordY, 30, 30 );
+    image(_img,_coordX, _coordY, 30, 30 );
 
     // if the ball is being dragged update its coordinates with the mouse
     if (_moving) {
