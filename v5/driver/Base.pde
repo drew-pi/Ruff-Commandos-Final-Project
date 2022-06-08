@@ -1,4 +1,4 @@
-class Base extends Zombies{
+class Base extends Zombies {
 
 
 
@@ -9,12 +9,13 @@ class Base extends Zombies{
 
 
   //constructor for minHeap
-    Base(){
-      _img = loadImage("base.jpeg");
-      _coordX = 0;
-      _coordY = 0;
-      cost = 1;
-    }
+  Base(){
+     
+     _img = loadImage("base.jpeg");
+     _coordX = 0;
+     _coordY = 0;
+     cost = 1;
+   }
 
 
 

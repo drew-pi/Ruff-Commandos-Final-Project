@@ -1,10 +1,10 @@
 
-
+Zombies a,b,c,d;
+MinimumHeap<Zombies> minHeap;
 
 void setup() {
-  Zombies a,b,c,d;
-MinimumHeap<Zombies> minHeap;
-  size(600,600);
+  
+  size(800,800);
   background(0);
 
   a = new Base();
@@ -18,14 +18,14 @@ MinimumHeap<Zombies> minHeap;
   minHeap.add(c);
   minHeap.add(d);
 
-
+  
 }
 
 
 void draw() {
 
-  for(int i = 0; i < 4; i++){
-    Zombie temp = minHeap.removeMin();
+  while(!minHeap.isEmpty()){
+    Zombies temp = minHeap.removeMin();
     int j = int(random(3));
     if(j == 0){
       temp.setX(400);
@@ -38,12 +38,12 @@ void draw() {
       temp.setY(500);
     }
     temp.display();
-    delay(1000);
+   delay(500);
   }
+  redraw();
 //  a.display();
 //  b.display();
 //  c.display();
 //  d.display();
 
-}
 }

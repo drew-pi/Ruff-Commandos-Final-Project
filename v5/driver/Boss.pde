@@ -19,7 +19,7 @@ class Boss extends Zombies{
 
   void display() {
 
-    _image(_img,_coordX, _coordY, 30, 30 );
+    image(_img,_coordX, _coordY, 30, 30 );
   }
   
 

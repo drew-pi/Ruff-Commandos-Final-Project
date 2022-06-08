@@ -12,6 +12,13 @@ class PZObjects {
   // defines what this object display (could be a png or null)
   PImage _img;
   
+  
+  PZObjects(){
+    _type = "";
+    _coordX = 0;
+    _coordY = 0;
+    _img = null;
+  }
   //overloaded constructor with just coordinates
   PZObjects(int coordX, int coordY) {
      _coordX = coordX;
