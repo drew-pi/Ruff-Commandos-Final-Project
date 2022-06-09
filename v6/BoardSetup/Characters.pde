@@ -102,6 +102,12 @@ class Characters extends PZObjects {// implements Comparable<Characters>{
       return 0;
     }
   } // end compareTo
+  
+  
+  void setUp(float x, float y, float speed) {
+    _bCoordX = x;
+    _bCoordY = y;
+  }
 
 
-}
+} // end class

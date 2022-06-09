@@ -2,6 +2,14 @@ class Zombies extends Characters implements Comparable<Zombies>{
 
   float _speed;
 
+  Zombies() {
+    super();
+    _bCoordX = _bCoordY = _speed = 0;
+    _alive = true;
+    _moving = true;
+    _type = "Zombie";
+  }
+  
   // overloaded constructor without type or owner
   Zombies(float coordX, float coordY, int damage, int health) {
     super(0,0,0,damage,health);
@@ -37,5 +45,12 @@ class Zombies extends Characters implements Comparable<Zombies>{
     }
   } // end compareTo
   
+  
+  void setUp(float x, float y, float speed) {
+    _bCoordX = x;
+    _bCoordY = y;
+    
+    _speed = speed;
+  }
   
 }

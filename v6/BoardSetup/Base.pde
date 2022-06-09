@@ -1,6 +1,14 @@
 class Base extends Zombies {
 
-
+  
+  Base() {
+    super();
+    _type = "Zombie";
+    _img = loadImage("base.jpeg");
+    _cost = 1;
+  }
+  
+  
   //constructor for minHeap
   Base(int x, int y, float speed){
     super(x,y,1,2,speed,loadImage("base.jpeg"));

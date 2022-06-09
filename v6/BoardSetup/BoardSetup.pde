@@ -16,6 +16,7 @@ void setup() {
   buttons = new ArrayList<Button>();
   bullets = new ArrayList<Characters>();
   zomHeap = new MinimumHeap<Zombies>();
+  setupZombHeap();
 
   // setup other variables
   numSuns = STARTING_SUNS;
@@ -26,8 +27,6 @@ void setup() {
   setupTiles();
   drawLines();
   setupButtons();
-  
-  addZombie(2,"Boss");
 }
 
 
@@ -99,40 +98,36 @@ void draw() {
   } // end bullets for loop
   
   
+  if ( ((int) (Math.random() * 400)) == 56) addZomb( (int)(Math.random()*4)+1);
+  
+  
   
 } // end draw
 
 
 
-void addZombie(int rowNum, String type) {
+
+// adds a specific zombie to a specific row 
+void addZomb(int rowNum) {
   // row 1 (from the top) - coordinates (y1,y2) - (200,300)
   // row 2 - (300,400)
   // row 3 - (400,500)
   // row 4 - (500,600)
   
-  // types - 
-  if (rowNum == 1) {
-    if ( type.equals("Base") ) {
-      // (float coordX, float coordY,int damage, int health, float speed, PImage img)
-      Characters tmp = new Base(1200,250,1);
-      bullets.add(tmp);
-    }
-    if ( type.equals("Boss") ) {
-      Characters tmp = new Boss(1200,250,1);
-      bullets.add(tmp);
-    }
-  }
-  if (rowNum == 2) {
-    if ( type.equals("Base") ) {
-      // (float coordX, float coordY,int damage, int health, float speed, PImage img)
-      Characters tmp = new Base(1200,350,1);
-      bullets.add(tmp);
-    }
-    if ( type.equals("Boss") ) {
-      Characters tmp = new Boss(1200,350,1);
-      bullets.add(tmp);
-    }
-  }
+  // types - base or boss - disregard if using minheap
+  //if ( type.equals("Base") ) {
+  //  // (float coordX, float coordY,int damage, int health, float speed, PImage img)
+  //  Characters tmp = new Base(1200,150+(100*rowNum),1);
+  //  bullets.add(tmp);
+  //}
+  //if ( type.equals("Boss") ) {
+  //  Characters tmp = new Boss(1200,150+(100*rowNum),1);
+  //  bullets.add(tmp);
+  //}
+  
+  Characters tmp = zomHeap.removeMin();
+  tmp.setUp(1200,150+(100*rowNum),1);
+  bullets.add(tmp);
 }
 
 
@@ -155,9 +150,11 @@ The following methods setup the board.
  - can be used a few times, but meant for just the setup (then must be updated at the beginning of each tick)
 */
 
-void setupZombies() {
-  
-  
+void setupZombHeap() {
+  // settuing up boss zombies
+  for (int i = 0; i < 4; i++) zomHeap.add(new Boss());
+  // setting up base zombies
+  for (int i = 0; i < 12; i++) zomHeap.add(new Base());
 }
 
 // draws lines needed for game
