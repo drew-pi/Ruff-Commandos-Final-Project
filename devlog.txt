@@ -22,11 +22,12 @@ COOL STUFF THAT *WILL* BE ADDED
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - How objects can move and collide in processing
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 
+ - Less Plants less zombies
+ - No lawnmowers.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,3 +99,22 @@ Andrew: Started working on how plants and zombies would interact
 Jacob: all plants created.
 Andrew: worked on to do list
 ==============================================================
+
+2022-06-04 to 2022-06-07
+--------------------------------------------------------------
+Jacob: created zombies. Implemented comparable. Failed to make grid.
+Andrew: Grid, button, bullets, layout
+==============================================================
+
+2022-06-08
+--------------------------------------------------------------
+Jacob: Figured out how to spawn zombies from MinHeap. Gave zombies movement.
+Andrew: 
+==============================================================
+
+2022-06-09
+--------------------------------------------------------------
+Jacob: Figured out collision and attacks.
+Andrew: Figured out how to spawn bullets
+==============================================================
+
