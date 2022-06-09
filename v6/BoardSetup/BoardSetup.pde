@@ -4,18 +4,18 @@ final int STARTING_SUNS = 10;
 int numSuns;
 
 Plants curPlant;
-ArrayList<PZObjects> all;
-
+MinimumHeap<Zombies> zomHeap;
 ArrayList<Characters> bullets;
 ArrayList<Button> buttons;
 ArrayList<GridSquare> tiles;
 
 
 void setup() {
-  // initialize arrays
+  // initialize arrays and other data types
   tiles = new ArrayList<GridSquare>();
   buttons = new ArrayList<Button>();
   bullets = new ArrayList<Characters>();
+  zomHeap = new MinimumHeap<Zombies>();
 
   // setup other variables
   numSuns = STARTING_SUNS;
@@ -26,6 +26,8 @@ void setup() {
   setupTiles();
   drawLines();
   setupButtons();
+  
+  addZombie(2,"Boss");
 }
 
 
@@ -89,18 +91,47 @@ void draw() {
         bullets.remove(i);
       }
     }
+    if ( tmp._type.equals("Zombie") ) {
+      if (tmp._bCoordX <= 0) {
+        bullets.remove(i);
+      }
+    }
   } // end bullets for loop
+  
+  
+  
 } // end draw
 
 
 
-void addZombie(int rowNum) {
+void addZombie(int rowNum, String type) {
   // row 1 (from the top) - coordinates (y1,y2) - (200,300)
   // row 2 - (300,400)
   // row 3 - (400,500)
   // row 4 - (500,600)
+  
+  // types - 
   if (rowNum == 1) {
-    
+    if ( type.equals("Base") ) {
+      // (float coordX, float coordY,int damage, int health, float speed, PImage img)
+      Characters tmp = new Base(1200,250,1);
+      bullets.add(tmp);
+    }
+    if ( type.equals("Boss") ) {
+      Characters tmp = new Boss(1200,250,1);
+      bullets.add(tmp);
+    }
+  }
+  if (rowNum == 2) {
+    if ( type.equals("Base") ) {
+      // (float coordX, float coordY,int damage, int health, float speed, PImage img)
+      Characters tmp = new Base(1200,350,1);
+      bullets.add(tmp);
+    }
+    if ( type.equals("Boss") ) {
+      Characters tmp = new Boss(1200,350,1);
+      bullets.add(tmp);
+    }
   }
 }
 
@@ -123,6 +154,11 @@ void addZombie(int rowNum) {
 The following methods setup the board.
  - can be used a few times, but meant for just the setup (then must be updated at the beginning of each tick)
 */
+
+void setupZombies() {
+  
+  
+}
 
 // draws lines needed for game
 void drawLines() {

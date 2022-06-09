@@ -1,57 +1,41 @@
 class Zombies extends Characters implements Comparable<Zombies>{
 
- int cost;
-//image
+  float _speed;
 
-
-  //Zombies(int x, int y, AdvancedButton creator, int h, int d){
-  //    super(x, y, creator,  h,  d, "Zombie");
-  //    //cost will be the health. Might make things easier for the min heap
-  //    cost = h;
-
-  //}
+  // overloaded constructor without type or owner
+  Zombies(float coordX, float coordY, int damage, int health) {
+    super(0,0,0,damage,health);
+    _type = "Zombie";
+    _bCoordX = coordX;
+    _bCoordY = coordY;
+    _alive = true;
+    _speed = 0;
+  } // end first overloaded constructor
   
-  Zombies(){
-    super();
-    cost = 0;
+  
+  Zombies(float coordX, float coordY,int damage, int health, float speed, PImage img) {
+    this(coordX, coordY, damage, health);
+    _speed = speed;
+    _img = img;
   }
   
   
   void display() {
-
-
-
-    //// if the ball is being dragged update its coordinates with the mouse
-    //if (_moving) {
-    //  _coordX = mouseX;
-    //  _coordY = mouseY;
-    //}
-    //// if you click the mouse outside of the button it will become static
-    //if (mousePressed && !owner.isInButton()) _moving = false;
+    image(_img, _bCoordX, _bCoordY,30,30);
+    _bCoordX -= _speed;
+    
   }
-  int getCost(){
-    return cost;
-  }
+
+  // compare to method mandated by comparable interface
   int compareTo(Zombies zomb){
-    if(this.cost > zomb.getCost()){
+    if(_cost > zomb._cost){
       return 1;
-    }else if(this.cost < zomb.getCost()){
+    }else if(_cost < zomb._cost){
       return -1;
     }else{
       return 0;
     }
-  }
-
-  void setX(int x){
-      _coordX = x;
-  }
-
-  void setY(int Y){
-      _coordY = Y;
-  }
+  } // end compareTo
   
-  void update(){
-    _coordX-= 10;
-    println("yeehha");
-  }
+  
 }

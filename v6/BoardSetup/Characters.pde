@@ -1,4 +1,4 @@
-class Characters extends PZObjects{
+class Characters extends PZObjects {// implements Comparable<Characters>{
 
   // instance variable of the button that created this instance
   Button _owner;
@@ -21,6 +21,8 @@ class Characters extends PZObjects{
   // coordinates for bullet (not used in plant or zombies) so that can fine tune speed
   float _bCoordX;
   float _bCoordY;
+  
+  int _cost;
 
   Characters(){
     super();
@@ -89,6 +91,17 @@ class Characters extends PZObjects{
   boolean areColliding(int x, int y, int radius) {
     return dist(x,y,_coordX, _coordY) <= radius;
   }
+  
+  // compare to method mandated by comparable interface
+  int compareTo(Characters zomb){
+    if(_cost > zomb._cost){
+      return 1;
+    }else if(_cost < zomb._cost){
+      return -1;
+    }else{
+      return 0;
+    }
+  } // end compareTo
 
 
 }

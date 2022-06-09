@@ -1,7 +1,7 @@
 // all characters have to have the same instance variables like health, damage, some sort of x and y location, etc...
   // - all characters and objects (like plant bullets) have to have "boolean collide(int x, int y)" to calculate if those two
 
-class PZObjects {
+class PZObjects { 
 
   // defines the type variable (could be zombie, plant, bullet)
   String _type;
@@ -39,5 +39,6 @@ class PZObjects {
     this(type, coordX, coordY);
     _img = img;
   }// end 3rd constructor
+  
 
 }
