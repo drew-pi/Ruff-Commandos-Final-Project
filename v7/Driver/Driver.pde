@@ -4,20 +4,20 @@ final int STARTING_SUNS = 10;
 int numSuns;
 
 Plants curPlant;
-ArrayList<PZObjects> all;
-
+MinimumHeap<Zombies> zomHeap;
 ArrayList<Characters> bullets;
+ArrayList<Zombies> zombiesList; 
 ArrayList<Button> buttons;
 ArrayList<GridSquare> tiles;
-ArrayList<Zombies> zombiesList;
+
 
 void setup() {
-  // initialize arrays
+  // initialize arrays and other data types
   tiles = new ArrayList<GridSquare>();
   buttons = new ArrayList<Button>();
   bullets = new ArrayList<Characters>();
-
-zombiesList = new ArrayList<Zombies>();
+  zomHeap = new MinimumHeap<Zombies>();
+  zombiesList = new ArrayList<Zombies>();
 
   // setup other variables
   numSuns = STARTING_SUNS;
@@ -28,9 +28,6 @@ zombiesList = new ArrayList<Zombies>();
   setupTiles();
   drawLines();
   setupButtons();
-
-  //test spawn a zombie
-  zombiesList.add(new Base());
 }
 
 

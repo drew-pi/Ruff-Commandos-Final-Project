@@ -89,6 +89,8 @@ class Characters extends PZObjects{
   boolean isALive(){
       return _alive;
   }
+  
+  
   void attack(Zombies o){
     if(dist(this._bCoordX, this._bCoordY, o.getX(), o.getY()) < 20){
         o.takeDamage(1);
