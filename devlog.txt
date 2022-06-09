@@ -33,6 +33,7 @@ LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
  - Merge conflicts suck
+ - processing has terrible error messages
 
 ||||||||||||||||||||||||||||||||||||||||||
 
@@ -50,7 +51,7 @@ tales of wisdom gained...
 
 To Do List:
 --------------------------------------------------------------
-1. Create many interfaces so that things have to work properly
+1. Create our inheritance tree
 	- make all Zombies adhere to comparable interface to work with min heap
 	- all characters have to have the same instance variables like health, damage, some sort of x and y location, etc... 
 	- all characters and objects (like plant bullets) have to have "boolean collide(int x, int y)" to calculate if those two objects are colliding
@@ -63,7 +64,7 @@ To Do List:
 
 4. Create distinct zones where you can place zombies (where they would lock onto, similar to buttons, but plate objects or something of that sort) or discuss alternative methods
 
-5. 
+5. extra stuff
 
 
 
@@ -114,7 +115,7 @@ Andrew:
 
 2022-06-09
 --------------------------------------------------------------
-Jacob: Figured out collision and attacks.
-Andrew: Figured out how to spawn bullets
+Jacob: Figured out collision and attacks. Zombie die. 
+Andrew: Figured out how to spawn bullets from plants.
 ==============================================================
 
