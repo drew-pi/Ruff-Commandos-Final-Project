@@ -4,14 +4,21 @@
 class PZObjects {
 
   // defines the type variable (could be zombie, plant, bullet)
-  protected String _type;
+  String _type;
 
   // defines the X and Y locations of this object (or of its center)
-  protected int _coordX, _coordY;
+  int _coordX, _coordY;
 
   // defines what this object display (could be a png or null)
-protected  PImage _img;
+  PImage _img;
 
+  PZObjects(){
+    _type = "";
+    _coordX = 0;
+    _coordY = 0;
+    _img = null;
+  }
+  
   //overloaded constructor with just coordinates
   PZObjects(int coordX, int coordY) {
      _coordX = coordX;

@@ -19,6 +19,7 @@ class PZObjects {
     _coordY = 0;
     _img = null;
   }
+  
   //overloaded constructor with just coordinates
   PZObjects(int coordX, int coordY) {
      _coordX = coordX;

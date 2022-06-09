@@ -58,11 +58,13 @@ void draw() {
       if (gs.isInButton() && mousePressed) {
         gs.setPlant(curPlant); 
         curPlant = null;
-        println("Placed");
       }
     }
     if (gs._plant != null) {
+      // the tile displays the plant now
       gs._plant.display();
+      
+      // if the plant is a pea then it can shoot bullets
       if ( gs._plant._type.equals("Pea") ) {
         gs._plant.addT();
         if ( gs._plant.timeToShoot() ) {
@@ -78,20 +80,29 @@ void draw() {
   } // end grid square for loop
   
   
-  // display the bullets shot out of the plants
-  for (Characters c : bullets) {
-    c.display();
-    if  ( c._type.equals("Bullet") ){
-      // removes the bullet if it goes off screen so that the array list doesn't fill up
-      if (c._bCoordX >= 1200) {
-        bullets.remove(c);
-      }// removes any 
-      
+  // display the bullets shot out of the plants (for some reason for i loops worked better)
+  for (int i = 0; i < bullets.size(); i++ ) {
+    Characters tmp = bullets.get(i);
+    tmp.display();
+    if ( tmp._type.equals("Bullet") ) { 
+      if (tmp._bCoordX >= 1200) {
+        bullets.remove(i);
+      }
     }
   } // end bullets for loop
-  
-  
 } // end draw
+
+
+
+void addZombie(int rowNum) {
+  // row 1 (from the top) - coordinates (y1,y2) - (200,300)
+  // row 2 - (300,400)
+  // row 3 - (400,500)
+  // row 4 - (500,600)
+  if (rowNum == 1) {
+    
+  }
+}
 
 
 

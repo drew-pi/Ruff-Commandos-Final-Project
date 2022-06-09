@@ -22,7 +22,16 @@ class Characters extends PZObjects{
   float _bCoordX;
   float _bCoordY;
 
-
+  Characters(){
+    super();
+    _radius = 0;
+    _health = 0;
+    _damage = 0;
+    _moving = false;
+    _alive = false;
+  }
+  
+  
   // first overloaded constructor without type or image
   Characters(int coordX, int coordY, int radius, int damage, int health) {
     super(coordX, coordY);
