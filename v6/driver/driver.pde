@@ -5,7 +5,7 @@ MinimumHeap<Zombies> minHeap;
 void setup() {
 
   size(800,800);
-  background(0);
+  background(255);
 
   zombiesList = new ArrayList<Zombies>();
 
@@ -23,7 +23,7 @@ void setup() {
 }
 
 void draw() {
-        background(0);
+  background(255);
 
   Zombies temp;
   //int list;
@@ -32,14 +32,14 @@ void draw() {
     print(temp);
     zombiesList.add(temp);
     
-    delay(700);
+    delay(50);
     
   }
   
   for(int i = 0; i < zombiesList.size() - 1; i++){
-      delay(500);
+      delay(25);
       zombiesList.get(i).display();
-      delay(500);
+      delay(25);
       zombiesList.get(i).update();
     }
 }
