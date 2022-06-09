@@ -3,7 +3,7 @@ class Walnut extends Plants{
 //PImage img;
 
 
-  Walnut(int x, int y, AdvancedButton creator, int h, int d, int cost){
+  Walnut(int x, int y, Button creator, int h, int d, int cost){
       super( x,  y,  creator,  h,  d,  cost);
       _img = loadImage("walnut.png");
   }

@@ -1,5 +1,7 @@
 class GridSquare {
-
+  
+ Plants _plant;
+ 
  // these coordinates define the top left corner
  int _cornerX, _cornerY;
 
@@ -40,7 +42,8 @@ class GridSquare {
  void display() {
    fill(c);
    rect(_cornerX,_cornerY,_width,_height);
- }// end draw
+   //if (_plant != null) _plant.display()
+ }// end display
 
  // checks to see if the the mouse is currently inside the borders of the button
  boolean isInButton() {
@@ -51,5 +54,12 @@ class GridSquare {
   }
   return false;
  } // end isInButton
+ 
+ 
+ // sets the plant of the grid square
+ void setPlant(Plants curPlant) {
+   _plant = curPlant;
+   _plant.setCoord(_cornerX + _width/2, _cornerY + _height/2);
+ }
 
 }// end class

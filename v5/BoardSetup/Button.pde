@@ -8,10 +8,13 @@ class Button {
 
  // defines the color of the button
  color c;
+ 
+ // defines what plant it spawns 
+ String _type;
 
 
  // overloaded constructor
- Button(int x, int y, int len, int high, color col) {
+ Button(int x, int y, int len, int high, color col, String type) {
    _cornerX = x;
    _cornerY = y;
 
@@ -19,6 +22,7 @@ class Button {
    _height = high;
 
   c = col;
+  _type = type;
  } // end constructor
 
   

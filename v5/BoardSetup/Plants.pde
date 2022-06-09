@@ -4,10 +4,10 @@ int costs;
 //image
 //PImage img;
 
-  Plants(int x, int y, AdvancedButton creator, int h, int d, int cost){
+  Plants(int x, int y, Button creator, int h, int d, int cost){
       super(x, y, creator,  h,  d, "Plant");
       costs = cost;
-      _moving = false;
+      _moving = true;
       //img = loadImage("cookie.jpeg");
   }
   void display() {
@@ -21,5 +21,10 @@ int costs;
     }
     // if you click the mouse outside of the button it will become static
     if (mousePressed && !_owner.isInButton()) _moving = false;
+  }
+  
+  void setCoord(int x, int y) {
+    _coordX = x;
+    _coordY = y;
   }
 }
