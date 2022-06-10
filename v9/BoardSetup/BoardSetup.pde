@@ -15,7 +15,7 @@ ArrayList<Plants> plants;
 
 
 void setup() {
-  frameRate(90);
+  frameRate(60);
   
   // initialize arrays and other data types
   tiles = new ArrayList<GridSquare>();
@@ -84,7 +84,7 @@ void draw() {
         if ( gs._plant.timeToShoot() ) {
           float coordX = gs._plant._coordX+30;
           float coordY = gs._plant._coordY+11;
-          float speed = 1.5;
+          float speed = 2.5;
           Bullets tmpBullet = new Bullets(coordX, coordY, 10, 10, 10, speed, color(10,150,10));
           bullets.add(tmpBullet);
           tmpBullet = null;
@@ -144,7 +144,7 @@ void draw() {
   }
   
   if (zomHeap.isEmpty() && zomList.isEmpty()) plantsWin();
-  if ( ((int) (Math.random() * 400)) == 56) addZomb( (int)(Math.random()*4)+1);
+  if ( ((int) (Math.random() * 80)) == 5) addZomb( (int)(Math.random()*4)+1);
   
   
   if (timeSinceLastSun > 1) {
@@ -152,7 +152,7 @@ void draw() {
    timeSinceLastSun = 0;
   }
   else {
-   timeSinceLastSun += 0.006; 
+   timeSinceLastSun += 0.010; 
   }
   
   timeSinceClick += 0.04;
@@ -186,12 +186,12 @@ void addZomb(int rowNum) {
 
 
 void zombsWin() {
-  
+    
    fill(150,0,0);
    textFont(createFont("TimesNewRomanPSMT", 30));
    textAlign(CENTER);
    text("YOU LOSE",width/2,height/2);
-   delay(10000);
+   //delay(10000);
    exit();
 }
 
@@ -203,7 +203,7 @@ void plantsWin() {
    textFont(createFont("TimesNewRomanPSMT", 30));
    textAlign(CENTER);
    text("YOU WIN!!!!!!!!",width/2,height/2);
-   delay(10000);
+   //delay(10000);
    exit();
   
 }
@@ -229,9 +229,9 @@ The following methods setup the board.
 
 void setupZombHeap() {
   // settuing up boss zombies
-  //for (int i = 0; i < 4; i++) zomHeap.add(new Boss());
+  for (int i = 0; i < 1; i++) zomHeap.add(new Boss());
   // setting up base zombies
-  for (int i = 0; i < 1; i++) zomHeap.add(new Base());
+  for (int i = 0; i < 12; i++) zomHeap.add(new Base());
 }
 
 // draws lines needed for game

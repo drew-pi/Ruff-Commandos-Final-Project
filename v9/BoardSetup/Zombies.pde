@@ -30,7 +30,7 @@ class Zombies extends Characters implements Comparable<Zombies>{
 
   void display() {
     image(_img, _bCoordX, _bCoordY,30,30);
-    _bCoordX -= _speed;
+    _bCoordX -= _speed + 0.5;
 
   }
 
