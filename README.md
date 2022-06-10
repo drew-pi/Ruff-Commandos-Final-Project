@@ -11,5 +11,24 @@
 
 
 ### How to Launch
+
+# First Way
 - Clone this repo
-- 
+- cd into this repo
+- cd into BoardSetup
+- Run ```processing BoardSetup.pde```
+- click run inside processing
+
+# Other Way
+- Clone this repo
+- find this repo in file explorer
+- go into BoardSetup 
+- open BoardSetup.pde
+- click run inside processing
+
+### How To Play
+*There may be some lag*
+- The game begins as soon as the program starts
+- The leftmost black box spawns in pea shooters. Click once and drag to desired grid. Click again to snap to grid.
+- The other black box spawns in walnuts. Click once and drag to desired grid. Click again to snap to grid.
+- Prevent zombies from getting to the other side of the screen otherwise you lose. 
