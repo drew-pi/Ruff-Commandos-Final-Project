@@ -29,6 +29,8 @@
 ### How To Play
 *There may be some lag*
 - The game begins as soon as the program starts
-- The leftmost black box spawns in pea shooters. Click once and drag to desired grid. Click again to snap to grid.
-- The other black box spawns in walnuts. Click once and drag to desired grid. Click again to snap to grid.
+- The peashooter button spawns in pea shooters. Click once and drag to desired grid. Click again to snap to grid.
+- The walnut button spawns in walnuts. Click once and drag to desired grid. Click again to snap to grid.
+- All plants cost 5 stars
+- You get stars naturally as the game progresses.
 - Prevent zombies from getting to the other side of the screen otherwise you lose. 
