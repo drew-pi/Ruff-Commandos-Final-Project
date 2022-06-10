@@ -115,7 +115,7 @@ Andrew:
 
 2022-06-09
 --------------------------------------------------------------
-Jacob: Figured out collision and attacks. Zombie die. plants die.
-Andrew: Figured out how to spawn bullets from plants.
+Jacob: Figured out collision and attacks. Zombie die. plants die. Gameover.
+Andrew: Figured out how to spawn bullets from plants. Money system. Gameover. incorporating minheap zombie spawning into actual setup.
 ==============================================================
 
