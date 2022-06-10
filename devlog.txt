@@ -10,6 +10,7 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  - How to make buttons. 
  - How to make min heap
+ - grid working and interaction between the zombies was the hardest thing (reason why we has to compromise some other less central features)
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -23,6 +24,7 @@ COOL STUFF THAT *WILL* BE ADDED
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  - How objects can move and collide in processing
+ - processing is not the most efficient gui but its user friendly and actually fun to use
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,6 +36,9 @@ LESSONS LEARNED
 tales of wisdom gained...
  - Merge conflicts suck
  - processing has terrible error messages
+ - ^^^^^^
+ - processing is slow with loops (at least that's what we determined)
+
 
 ||||||||||||||||||||||||||||||||||||||||||
 
@@ -110,7 +115,7 @@ Andrew: Grid, button, bullets, layout
 2022-06-08
 --------------------------------------------------------------
 Jacob: Figured out how to spawn zombies from MinHeap. Gave zombies movement.
-Andrew: 
+Andrew: Added zombies to the board
 ==============================================================
 
 2022-06-09
