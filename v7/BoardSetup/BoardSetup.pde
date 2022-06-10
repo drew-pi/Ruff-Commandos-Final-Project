@@ -5,8 +5,8 @@ int numSuns;
 
 Plants curPlant;
 MinimumHeap<Zombies> zomHeap;
+ArrayList<Zombies> zomList;
 ArrayList<Characters> bullets;
-ArrayList<Zombies> zombiesList; 
 ArrayList<Button> buttons;
 ArrayList<GridSquare> tiles;
 
@@ -17,7 +17,8 @@ void setup() {
   buttons = new ArrayList<Button>();
   bullets = new ArrayList<Characters>();
   zomHeap = new MinimumHeap<Zombies>();
-  zombiesList = new ArrayList<Zombies>();
+  zomList = new ArrayList<Zombies>();
+  setupZombHeap();
 
   // setup other variables
   numSuns = STARTING_SUNS;
@@ -28,8 +29,6 @@ void setup() {
   setupTiles();
   drawLines();
   setupButtons();
-  
-  zombiesList.add(new Base());
 }
 
 
@@ -38,14 +37,7 @@ void draw() {
   drawLines();
   setupButtons();
 
-
-
-for(int i = 0; i < zombiesList.size() ; i++){
-    zombiesList.get(i).display();
-    zombiesList.get(i).update();
-  }
-
-  // this part makes the buttons that spawn zombies work, first it displays all the
+  // this part makes the buttons that spawn zombies work, first it displays all the 
   // buttons visually but then it checks if they are being clicked
   // if they are then they create a new plant that becomes the curPlant and following
   // code figures out what to do with the plant
@@ -58,7 +50,7 @@ for(int i = 0; i < zombiesList.size() ; i++){
       if (b._type == "Walnut") curPlant = new Walnut(midCoorX, midCoorY, b, 10, 10, 0);
     }
   } // end button for loop
-
+  
   // makes sure that no random plant is placed on the board that is not on a tile
   // just displays the plant - some lag with the "curPlant._moving part"
   if (curPlant != null && curPlant._moving) curPlant.display();
@@ -67,21 +59,21 @@ for(int i = 0; i < zombiesList.size() ; i++){
   for (GridSquare gs : tiles) {
     if (curPlant != null && gs._plant == null) {
       if (gs.isInButton() && mousePressed) {
-        gs.setPlant(curPlant);
+        gs.setPlant(curPlant); 
         curPlant = null;
       }
     }
     if (gs._plant != null) {
       // the tile displays the plant now
       gs._plant.display();
-
+      
       // if the plant is a pea then it can shoot bullets
       if ( gs._plant._type.equals("Pea") ) {
         gs._plant.addT();
         if ( gs._plant.timeToShoot() ) {
           float coordX = gs._plant._coordX+30;
           float coordY = gs._plant._coordY+11;
-          float speed = 2;
+          float speed = 1.5;
           Characters tmpBullet = new Bullets(coordX, coordY, 10, 10, 10, speed, color(10,150,10));
           bullets.add(tmpBullet);
           tmpBullet = null;
@@ -89,41 +81,56 @@ for(int i = 0; i < zombiesList.size() ; i++){
       }
     }
   } // end grid square for loop
-
-
+  
+  
   // display the bullets shot out of the plants (for some reason for i loops worked better)
   for (int i = 0; i < bullets.size(); i++ ) {
     Characters tmp = bullets.get(i);
     tmp.display();
-    if ( tmp._type.equals("Bullet") ) {
-
-    //for every bullet, run attack on every zombie
-    for(int j = 0; j < zombiesList.size() ; j++){
-        tmp.attack(zombiesList.get(j));
-        if(!zombiesList.get(j).isALive()){
-          zombiesList.remove(j);
+    if ( tmp._type.equals("Bullet") ) { 
+      
+      for(int j = 0; j < zomList.size() ; j++){
+        tmp.attack(zomList.get(j));
+        if(!zomList.get(j).isALive()){
+          zomList.remove(j);
         }
       }
-
       if (tmp._bCoordX >= 1200) {
         bullets.remove(i);
       }
-      else if(!tmp.isALive()){
+      else if (!tmp.isALive()){
         bullets.remove(i);
       }
+    }
   } // end bullets for loop
+  
+  // display zombies that are still on the board
+  for (Zombies z : zomList) {
+     z.display(); 
+  }
+  
+  
+  if ( ((int) (Math.random() * 400)) == 56) addZomb( (int)(Math.random()*4)+1);
+  
+  
+  
 } // end draw
 
 
 
-//void addZombie(int rowNum) {
-//  // row 1 (from the top) - coordinates (y1,y2) - (200,300)
-//  // row 2 - (300,400)
-//  // row 3 - (400,500)
-//  // row 4 - (500,600)
-//  if (rowNum == 1) {
 
-//  }
+// adds a specific zombie to a specific row 
+void addZomb(int rowNum) {
+  // row 1 (from the top) - coordinates (y1,y2) - (200,300)
+  // row 2 - (300,400)
+  // row 3 - (400,500)
+  // row 4 - (500,600)
+  
+  if ( !zomHeap.isEmpty() ) {
+    Zombies tmp = zomHeap.removeMin();
+    tmp.setUp(1200,150+(100*rowNum));
+    zomList.add(tmp);
+  }
 }
 
 
@@ -145,6 +152,13 @@ for(int i = 0; i < zombiesList.size() ; i++){
 The following methods setup the board.
  - can be used a few times, but meant for just the setup (then must be updated at the beginning of each tick)
 */
+
+void setupZombHeap() {
+  // settuing up boss zombies
+  for (int i = 0; i < 4; i++) zomHeap.add(new Boss());
+  // setting up base zombies
+  for (int i = 0; i < 12; i++) zomHeap.add(new Base());
+}
 
 // draws lines needed for game
 void drawLines() {

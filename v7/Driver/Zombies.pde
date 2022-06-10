@@ -66,7 +66,7 @@ class Zombies extends Characters implements Comparable<Zombies>{
   }
 
   void update(){
-    _coordX-= 0.5;
+    _coordX-= 0.1;
   //  println("yeehha");
   }
 }
