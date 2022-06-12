@@ -37,18 +37,26 @@ void setup() {
   setupTiles();
   drawLines();
   setupButtons();
+  setupDisplays();
 }
 
 
 void draw() {
   background(255);
   drawLines();
-  setupButtons();
+  setupDisplays();
+  
+  // win condition
+  if (zomHeap.isEmpty() && zomList.isEmpty()) plantsWin();
+
+  // probability of zombie spawning, the row it spawns on is random
+  if ( ((int) (Math.random() * 400)) == 5) addZomb( (int)(Math.random()*4)+1);
 
   // this part makes the buttons that spawn zombies work, first it displays all the
   // buttons visually but then it checks if they are being clicked
   // if they are then they create a new plant that becomes the curPlant and following
   // code figures out what to do with the plant
+  
   for (Button b : buttons) {
     b.display();
     int midCoorX = b._cornerX + b._width/2;
@@ -84,7 +92,7 @@ void draw() {
         if ( gs._plant.timeToShoot() ) {
           float coordX = gs._plant._coordX+30;
           float coordY = gs._plant._coordY+11;
-          float speed = 2.5;
+          float speed = 1;
           Bullets tmpBullet = new Bullets(coordX, coordY, 10, 10, 10, speed, color(10,150,10));
           bullets.add(tmpBullet);
           tmpBullet = null;
@@ -110,6 +118,8 @@ void draw() {
           zomList.remove(j);
         }
       }
+      
+      // bullet operations continued
       if (tmp._bCoordX >= 1200) {
         bullets.remove(i);
       }
@@ -119,40 +129,35 @@ void draw() {
     }
     tmp = null;
   } // end bullets for loop
-
-  // display zombies that are still on the board and attack plants
-  //for (Zombies z : zomList) {
-  //   z.display();
-     
-  //}
   
+  
+  // zombie for loop
   for(int j = 0; j < zomList.size(); j++){
       //attack plants
       Zombies temp = zomList.get(j);
+      if (temp._bCoordX <= 0) {
+         zombsWin();
+         break;
+       }
       temp.display();
-       for(int i = 0; i < plants.size(); i++){
+      for(int i = 0; i < plants.size(); i++){
            temp.attack(plants.get(i));
            //println("plant health:" + plants.get(i)._health);
             if(!plants.get(i).isALive()){
                 plants.remove(i);
             }
        }
-       if (temp._bCoordX <= 0) {
-         zombsWin();
-       }
        temp = null;
   }
   
-  if (zomHeap.isEmpty() && zomList.isEmpty()) plantsWin();
-  if ( ((int) (Math.random() * 80)) == 5) addZomb( (int)(Math.random()*4)+1);
   
-  
+  // timing section - useful for adding suns and also making sure your click does not register mulitple times
   if (timeSinceLastSun > 1) {
    numSuns += 1; 
    timeSinceLastSun = 0;
   }
   else {
-   timeSinceLastSun += 0.010; 
+   timeSinceLastSun += 0.004; 
   }
   
   timeSinceClick += 0.04;
@@ -186,26 +191,18 @@ void addZomb(int rowNum) {
 
 
 void zombsWin() {
-    
+
    fill(150,0,0);
    textFont(createFont("TimesNewRomanPSMT", 30));
    textAlign(CENTER);
    text("YOU LOSE",width/2,height/2);
-   //delay(10000);
-   exit();
 }
 
 void plantsWin() {
-  
-   delay(2000);
-  
    fill(0,150,0);
    textFont(createFont("TimesNewRomanPSMT", 30));
    textAlign(CENTER);
    text("YOU WIN!!!!!!!!",width/2,height/2);
-   //delay(10000);
-   exit();
-  
 }
 
 
@@ -229,9 +226,9 @@ The following methods setup the board.
 
 void setupZombHeap() {
   // settuing up boss zombies
-  for (int i = 0; i < 1; i++) zomHeap.add(new Boss());
+  for (int i = 0; i < 2; i++) zomHeap.add(new Boss());
   // setting up base zombies
-  for (int i = 0; i < 12; i++) zomHeap.add(new Base());
+  for (int i = 0; i < 13; i++) zomHeap.add(new Base());
 }
 
 // draws lines needed for game
@@ -247,19 +244,21 @@ void drawLines() {
 } // end draw lines
 
 // functions that setups the buttons and timers
-void setupButtons() {
 
+void setupButtons() {
   // setup the plant buttons
-  buttons.add(new Button(5, 5, 100, 80, 0, "Pea",loadImage("pea.jpeg"))); // button for pea
-  buttons.add(new Button(120, 5, 100, 80, 0, "Walnut",loadImage("walnut.png"))); // button for walnut
+  buttons.add(new Button(5, 5, 100, 80, 255, "Pea",loadImage("pea.jpeg"))); // button for pea
+  buttons.add(new Button(120, 5, 100, 80, 255, "Walnut",loadImage("walnut.png"))); // button for walnut
   //buttons.add(new Button(235,5,100,80,0)); // button for
 
   //buttons.add(new Button(5,100,100,80,0)); // button for
   //buttons.add(new Button(120,100,100,80,0)); // button for
 
-  for (Button b : buttons) b.display(); // display the buttons on the screen
+  //for (Button b : buttons) b.display(); // display the buttons on the screen
+}
 
 
+void setupDisplays() {
   // setup the display for how many suns you have
   fill(50, 100, 50);
   rect(900, 5, 250, 150);
@@ -292,7 +291,9 @@ void setupButtons() {
   textAlign(CENTER);
   textFont(createFont("TimesNewRomanPSMT", 20));
   fill(0);
-  text( (zomHeap.size() + " / 13  Zombies Left"), 800, 30);
+  text( (zomHeap.size() + " / 15  Zombies Left"), 800, 30);
+  
+  text(frameRate,800,60);
 } // setup buttons
 
 
@@ -306,5 +307,5 @@ void setupTiles() {
     }
   }
 
-  for (GridSquare g : tiles) g.display();
+  //for (GridSquare g : tiles) g.display();
 } // end setupTiles

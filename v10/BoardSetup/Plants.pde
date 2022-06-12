@@ -31,7 +31,7 @@ class Plants extends Characters{
   }
   
   void addT() {
-    _tSL += 0.01;
+    _tSL += 0.0023;
   }
   
   boolean timeToShoot() {

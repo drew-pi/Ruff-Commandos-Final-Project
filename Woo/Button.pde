@@ -31,7 +31,7 @@ class Button {
   
  // visually displays the button (does nothing else)
  void display() {
-   fill(255);
+   fill(c);
    rect(_cornerX,_cornerY,_width,_height);
    image(_img,_cornerX+_width/3, _cornerY+_height/3, _height/2, _width/2 );
    

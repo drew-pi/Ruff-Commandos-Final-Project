@@ -6,7 +6,7 @@ class Base extends Zombies {
     _type = "Zombie";
     _img = loadImage("base.jpeg");
     _cost = 1;
-    _speed = 0.5;
+    _speed = 0.05;
     _health = 2;
     _damage = 1;
   }
@@ -20,7 +20,7 @@ class Base extends Zombies {
     _cost = 1;
     _alive = true;
     _moving = true;
-    _speed = 0.5;
+    _speed = 0.1;
   }
 
 

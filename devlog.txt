@@ -11,11 +11,12 @@ OBSTACLES OVERCOME
  - How to make buttons. 
  - How to make min heap
  - grid working and interaction between the zombies was the hardest thing (reason why we has to compromise some other less central features)
+ - huge lag issues at first seemed like it was processing's fault, but then went through code and found out that it was due to a rapidly expanding array list with a size of 2*60*t (Where t is time in seconds) since our program runs at 60 fps. Would cause massive lag, but then went through and fixed it so that only ran once and the array list was size 2 the entire programs duration
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - How exactly the grid will work for the plants
- - how attacking will work
+ - How exactly the grid will work for the plants (resolved now)
+ - how attacking will work (resolved now)
 
 COOL STUFF THAT *WILL* BE ADDED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,6 +26,7 @@ COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  - How objects can move and collide in processing
  - processing is not the most efficient gui but its user friendly and actually fun to use
+ - have to be careful when adding things to an array list because will be added regardless of context if not context provided
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +39,7 @@ tales of wisdom gained...
  - Merge conflicts suck
  - processing has terrible error messages
  - ^^^^^^
- - processing is slow with loops (at least that's what we determined)
+ - processing is slow with loops (at least that's what we determined) - nope processing is fine with loops, just processing and computers are not good with array lists the size of Jupiter
 
 
 ||||||||||||||||||||||||||||||||||||||||||
@@ -123,4 +125,11 @@ Andrew: Added zombies to the board
 Jacob: Figured out collision and attacks. Zombie die. plants die. Gameover.
 Andrew: Figured out how to spawn bullets from plants. Money system. Gameover. incorporating minheap zombie spawning into actual setup.
 ==============================================================
+
+2022-06-12
+--------------------------------------------------------------
+Jacob: 
+Andrew: Fixed game over screen, balanced game, and most importantly - NO MORE LAG and RUNS AT 60 FPS LIKE IT WAS SUPPOSED TO (fixed lag by fixing an issue with my code)
+==============================================================
+
 

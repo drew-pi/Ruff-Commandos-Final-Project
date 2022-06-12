@@ -5,7 +5,7 @@ class Boss extends Zombies{
     _type = "Zombie";
     _img = loadImage("boss.jpeg");
     _cost = 3;
-    _speed = 1;
+    _speed = 0.0001;
     _health = 5;
     _damage = 2;
   }
@@ -18,7 +18,7 @@ class Boss extends Zombies{
     _cost = 3;
     _alive = true;
     _moving = true;
-    _speed = 1;
+    _speed = 0.05;
   }
 
 
